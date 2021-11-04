@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body_dark {
+    background-image: url('./images/bg-desktop-dark.jpg');
+    background-color: hsl(235, 21%, 11%);
+    background-repeat: no-repeat;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.body_light {
+    background-image: url('./images/bg-desktop-light.jpg');
+    background-color: hsl(236, 33%, 92%);
+    background-repeat: no-repeat;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#top {
+    width: 100%;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+
+#title {
+    color: white;
+    font-size: 40px;
+    padding-right: 300px;
+}
+
+#theme {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.removeTask {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    float: right;
+    padding-right: 20px;
+    display: none;
+}
+
+#theme-logo {
+    height: 26px;
+}
+
+#task{
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 20px;
+    font-size: 17px;
+    caret-color: lightskyblue;
+}
+
+.task_dark {
+    background-color: hsl(235, 24%, 19%);
+    color: white;
+}
+.task_light {
+    background-color: hsl(0, 0%, 98%);
+    color: black;
+}
+
+#tasks {
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.items_dark {
+    background-color: hsl(235, 24%, 19%);
+    color: white;
+}
+
+.items_light {
+    background-color: hsl(0, 0%, 98%);
+    color: black;
+}
+
+ul {
+    border-radius: 5px;
+}
+
+ul li {
+    width: 500px;
+    height: 50px;
+    border: none;
+    padding-left: 40px;
+    padding-top: 15px;
+    font-size: 17px;
+    list-style-type: none;
+    border-bottom: 1px solid white;
+}
+
+li:hover > .removeTask{
+    display: inline;
+}
+
+input[type = "checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+}
+
+label::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: -25px;
+    top: -2px;
+}
+
+input[type = "checkbox"]:checked + label::before {
+    background: url('./images/icon-check.svg') no-repeat;
+    background-position: center center;
+}
+
+input[type = "checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#all, #active, #completed {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#all:hover , #active:hover, #completed:hover {
+    color: lightskyblue;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo</title>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+    <body class = "body_dark">
+        <div id = "main">
+            <div id = "header">
+                <span id = "title">T&nbsp;O&nbsp;D&nbsp;O</span>
+                <button id = "theme" onclick = "changeTheme()"><img id = "theme-logo" src = "images/icon-sun.svg"></button>
+            </div>
+
+            <div id = "task_input">
+                <input type = "text" name = "task" id = "task" class = "task_dark" placeholder = "Enter Task">
+            </div>
+            
+            <div id = "tasks">
+                <ul id = "items" class = "items_dark">
+
+                </ul>
+                <p class = "task_dark" id = "footer">
+                    <span id = "total">0 items left</span>
+                    <button id = "all" onclick = "displayAll()">All</button>
+                    <button id = "active" onclick = "displayActive()">Active</button>
+                    <button id = "completed" onclick = "displayCompleted()">Completed</button>
+                </p>
+            </div>
+        </div>
+        <script src = "script.js"></script>
+    </body>
+</html>
