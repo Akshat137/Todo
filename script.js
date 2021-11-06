@@ -1,3 +1,19 @@
+var dragging = null;
+
+document.addEventListener('dragstart', function(event) {
+	dragging = event.target;
+    event.dataTransfer.setData('text/html', dragging);
+});
+
+document.addEventListener('dragover', function(event) {
+    event.preventDefault();
+});
+
+document.addEventListener('drop', function(event) {
+    event.preventDefault();
+    event.target.parentNode.insertBefore(dragging, event.target.nextSibling);
+});
+
 function changeTheme() {
     var x = document.getElementById('theme-logo').src;
 
@@ -44,13 +60,18 @@ var total = 0;
 input.addEventListener("keyup", function(event) {
     if(event.key == "Enter") {
         var y = document.createElement("li");
-        y.innerHTML = "<input type = \"checkbox\" id = \"task_" + count + "\"> <label for = \"task_" + count + "\">" + input.value + "</label> <button class = \"removeTask\" onclick = \"deleteTask(this)\" ><img src = \"./images/icon-cross.svg\"> </button>";
+        y.draggable = true;
+        y.innerHTML = "<input type = \"checkbox\" id = \"task_" + count + "\" onclick = \"itemsCount(this)\"> <label for = \"task_" + count + "\">" + input.value + "</label> <button class = \"removeTask\" onclick = \"deleteTask(this)\" ><img src = \"./images/icon-cross.svg\"> </button>";
         var w = document.getElementById("items");
         w.appendChild(y);
+
         count = count + 1;
         total = total + 1;
 
         document.getElementById("total").innerHTML = total + " items left";
+
+        event.preventDefault();
+        event.currentTarget.value = "";
     }
 });
 
@@ -58,6 +79,16 @@ function deleteTask(element) {
     element.parentNode.parentNode.removeChild(element.parentNode);
     total = total - 1;
 
+    document.getElementById("total").innerHTML = total + " items left";
+}
+
+function itemsCount(checkbox) {
+    if(checkbox.checked == true) {
+        total = total - 1;
+    }
+    else {
+        total = total + 1;
+    }
     document.getElementById("total").innerHTML = total + " items left";
 }
 
